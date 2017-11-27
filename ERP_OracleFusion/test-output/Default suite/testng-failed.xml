@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default Suite]">
+  <test name="test-number-0(failed)">
+    <parameter name="host" value="0"/>
+    <classes>
+      <class name="OCTS_Automation_Main_Modules.JournalEntrySourceName">
+        <methods>
+          <include name="journalEntrySourcename"/>
+        </methods>
+      </class> <!-- OCTS_Automation_Main_Modules.JournalEntrySourceName -->
+    </classes>
+  </test> <!-- test-number-0(failed) -->
+</suite> <!-- Failed suite [Default Suite] -->
