@@ -1,3 +1,15 @@
+/*===============================================================================================================================
+        CLASS Name:    MainTriggerTestNG
+        CREATED BY:    Navya Mallajosyula
+        DATE CREATED:  Nov 2017
+        DESCRIPTION:   Invoke Test Cases through TestNG                    
+        PARAMETERS:                                                                  
+        RETURNS:      
+        COMMENTS:                                     
+        Modification Log:
+        Date                             Initials                                                Modification
+        
+-------------         ------------    ------------------------------------------------------------------------------------------------------------------------------*/
 package OCTS_Automation_Main_Modules;
 
 import java.io.File;
