@@ -2,7 +2,7 @@
         CLASS Name:    UnzipOutputFileGenerated
         CREATED BY:    Navya Mallajosyula
         DATE CREATED:  Nov 2017
-        DESCRIPTION:   Unzip folder                   
+        DESCRIPTION:   Code to unzip output folder and GI interface folder                   
         PARAMETERS:                                                                  
         RETURNS:      
         COMMENTS:                                     
@@ -10,7 +10,6 @@
         Date                             Initials                                                Modification
         
 -------------         ------------    ------------------------------------------------------------------------------------------------------------------------------*/
-
 package OCTS_Automation_Main_Modules;
 
 import java.io.File;
