@@ -17,17 +17,24 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import Common_Utility.ReporterBaseTest;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.testng.annotations.Test;
 
+import Common_Utility.CommonUtilFunctions;
+import Common_Utility.Details;
+
 import com.aventstack.extentreports.Status;
 
-public class JournalEntrySourceName extends ReadERPInputDataSheet {
+import OCTS_Automation_Main_Modules.ReadERPInputDataSheet;
+@SuppressWarnings("unused")
+public class JournalEntrySourceName extends ReporterBaseTest {
 	
 	// Required Variables to pull out the matching string
 	/*static String zipFilePath = "C:\\Automation_OCTS\\Output\\70594.zip";  
     static String destDir = "C:\\Automation_OCTS\\Output\\";*/
-	static String fileObj = ERP_Financial_Webservice_MainClass.zipFilePath.replace("zip", "txt");
+	//static String fileObj = ERP_Financial_Webservice_MainClass.zipFilePath.replace("zip", "txt");
 	static String excelPath = "C:\\Automation_OCTS\\Data\\ERP_InputDatasheet.xlsx";
 	static String entrySourceName = "";
 	static String[] splitNewLine = {};
@@ -36,15 +43,32 @@ public class JournalEntrySourceName extends ReadERPInputDataSheet {
 	static ArrayList<Cell> outputValue = new ArrayList<Cell>();
 	static String ColumnWanted = "SEJRRequestImport_PL2_JournalSource";
 	int flag=0;
-	
+	static String fileObj;
 	@Test
-	public void journalEntrySourcename() throws IOException {
-		Common_Utility.ReporterBaseTest.test = Common_Utility.ReporterBaseTest.extent.createTest("Journal Entry Source Name");
+	public void journalEntrySourcename() {
+		
+		ERP_Financial_Webservice_MainClass ef = new ERP_Financial_Webservice_MainClass();
+		
+		fileObj=ERP_Financial_Webservice_MainClass.zipFilePath.replace("zip", "txt");
+		System.out.println(fileObj);
+		//fileObj = zipFilepath.replace("zip", "txt");
+		 test=extent.createTest("Journal Entry Source Name");
+		//Common_Utility.ReporterBaseTest.test = Common_Utility.ReporterBaseTest.extent.createTest("Journal Entry Source Name");
 		ReadERPInputDataSheet re = new ReadERPInputDataSheet();
-		outputValue = re.parseInputExcelFile(excelPath, ColumnWanted);
+		try {
+			outputValue = re.parseInputExcelFile(excelPath, ColumnWanted);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		entrySourceName = outputValue.get(0).toString();
 
-		getEntrySourceName();
+		try {
+			getEntrySourceName();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		for (int i = 0; i < finalOutputValues.size() - 1; i++) {
 			if (finalOutputValues.get(0).equals(entrySourceName)) {
@@ -68,7 +92,7 @@ public class JournalEntrySourceName extends ReadERPInputDataSheet {
 
 	// Method to parse the text file and pull out the Matching pattern to
 	// validate the excel
-	public static List<String> getEntrySourceName() throws IOException {
+	public List<String> getEntrySourceName() throws IOException {
 		try {
 			String line = null;
 			String newLine = "";
